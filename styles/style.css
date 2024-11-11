@@ -9,6 +9,12 @@ html {
 }
 
 .page {
+  /* Добавил Я */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* */
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -36,3 +42,106 @@ ul,
 ol {
   list-style: none;
 }
+
+  /* Добавил Я */
+.content {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.result {
+
+}
+
+.result__video-container {
+
+}
+
+.result__video {
+}
+
+.search-form {}
+
+.search-form__fieldset {}
+
+.search-form__fieldset-title {}
+
+.search-form__label {}
+
+.search-form__label-text {}
+
+  /* input.text */
+.search-form__textfield {}
+
+  /* input.checkbox */
+.search-form__checkbox-list {}
+
+.search-form__checkbox {}
+
+.search-form__pseudo-checkbox {}
+
+  /* Кнопка */
+.button {}
+
+.search-form__submit-button {}
+
+  /* Контент */
+.content__details {}
+
+.title {}
+
+.content__accent {}
+
+.content__list {}
+
+  /* Темплейты */
+.preloader-template {}
+
+.preloader {}
+
+.preloader-chasing-squares {}
+
+.square {}
+
+.cards-list-item-template {}
+
+.content__list-item {}
+
+.content__card-link {}
+
+.content__video-card {}
+
+.content__video-card-description-container {}
+
+.content__video-card-title {}
+
+.content__video-card-description {}
+
+.content__video-card-thumbnail {}
+
+.more-button-template {}
+
+.more-button {}
+
+.error-template {}
+
+.error {}
+
+.error__title {}
+
+  /* Общее */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+
