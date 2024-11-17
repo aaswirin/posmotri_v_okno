@@ -43,14 +43,14 @@ ol {
   list-style: none;
 }
 
-  /* Добавил Я */
+/* Добавил Я */
 .content {
-  display: flex;
-  justify-content: start;
-  align-items: end;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
-  max-width: 100%;
-  padding: 133px 30px;
+  width: 100%;
+  padding: 0 30px;
 }
 
 .result {
@@ -59,40 +59,62 @@ ol {
 
 .result__video-container {
   position: relative;
-  max-width: 711px;
-  max-height: 386px;
-  margin-bottom: 16px;
+  inline-size: 711px;
+  height: 386px;
+  margin: 0 0 11px;
 }
 
 .result__video {
   object-fit: cover;
   object-position: center;
-  width: 711px;
-  height: 386px;
+  width: 100%;
+  height: 100%;
 }
 
 .search-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: inline-flex;
+  flex-direction: row;
   gap: 40px;
+  cursor: default;
 }
 
 .search-form__fieldset {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: fit-content;
   border: none;
 }
 
 .search-form__fieldset-title {
-  font: 18px Fira Sans Condensed;
-  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.search-form__fieldset-title:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 .search-form__label {
-  max-width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
 }
 
-.search-form__label-text {
-  text-decoration: underline;
-  text-underline-position: under;
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline 1px #fff;
+  text-underline-offset: 4px;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
   /* input.text */
@@ -100,74 +122,98 @@ ol {
   outline: none;
   border-top: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  color: #fff;
   border-left: none;
   border-right: none;
   min-width: 225px;
   min-height: 27px;
   background-color: transparent;
-  font-family: Fira Sans Condensed, sans-serif;
+  font-family: inherit;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  text-align: left;
+  color: #fff;
+}
+
+.search-form__textfield::placeholder {
+  font-size: 18px;
+}
+
+.search-form__textfield:focus {
+  border: 1px solid #fff;
 }
 
   /* input.checkbox */
 .search-form__checkbox-list {
-  display: inline;
-}
-
-.search-form__checkbox {
-  appearance: none;
+  display: flex;
+  gap: 15px;
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
-  vertical-align: middle;
-  outline: #fff 1px solid;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   width: 19px;
   height: 19px;
+  border: 1px solid #fff;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #fff;
 }
 
   /* Кнопка */
 .button {
-  background-color: transparent;
-  color: #fff;
+  border: 1px solid #fff;
+  align-self: flex-end;
+  min-height: 34px;
   text-align: center;
   font-family: inherit;
   font-size: 18px;
+  font-style: normal;
   font-weight: 700;
-  border: #fff 1px solid;
-  min-height: 34px;
-  padding: 0;
+  line-height: normal;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.button:active {
+  background: #545050;
+}
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .search-form__submit-button {
-  max-width: 194px;
-  align-self: end;
+  width: 194px;
 }
 
   /* Контент */
 .content__details {
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  max-width: 399px;
-  max-height: 534px;
-  padding-top: 5px;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
   font-family: Oswald, sans-serif;
   font-size: 75px;
-  line-height: 94%;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 70px;
   text-transform: uppercase;
-  margin-bottom: 26px;
 }
 
 .content__accent {
@@ -175,53 +221,76 @@ ol {
 }
 
 .content__list {
+  display: flex;
+  flex-direction: column;
+  align-self: baseline;
   position: relative;
-  overflow: auto;
+  height: 298px;
+  overflow-y: auto;
+  margin-top: 21px;
 }
 
-  /*  Темплейты */
-.preloader-template {}
-
-.preloader {}
-
-.preloader-chasing-squares {}
-
-.square {}
-
-.cards-list-item-template {}
-
+/*  Темплейты */
 .content__list-item {
-  max-width: 399px;
-  max-height: 103px;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+
+.content__list-item:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .content__card-link {
   display: block;
-  font-size: 18px;
+  max-width: 394px;
+  margin: 2px;
   text-decoration: none;
   color: #fff;
-  margin: 2px;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+}
+
+.content__card-link:active {
+  background: #545050;
+}
+
+.content__card-link:hover .content__video-card-title,
+.content__card-link:hover .content__video-card-description {
+  text-decoration: underline 1px #fff;
+  text-underline-offset: 2px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__video-card {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.content__video-card-description-container {
-  max-width: 100%;
-}
-
-.content__video-card-title {
-  color: #fff;
-  font-family: Oswald, sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
 }
 
 .content__video-card-description {
-  line-height: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+  line-height: 16px;
+}
+
+.content__video-card-title {
+  width: 200px;
+  overflow: hidden;
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 33px;
+  text-transform: uppercase;
 }
 
 .content__video-card-thumbnail {
@@ -231,19 +300,11 @@ ol {
   max-height: 103px;
 }
 
-.more-button-template {}
-
 .more-button {
   width: 100%;
 }
 
-.error-template {}
-
-.error {}
-
-.error__title {}
-
-  /* Общее */
+/* Общее */
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -253,5 +314,3 @@ ol {
   position: absolute;
   white-space: nowrap;
 }
-
-
